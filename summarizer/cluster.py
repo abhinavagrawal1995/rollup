@@ -4,6 +4,7 @@
 import json
 from sklearn.cluster import KMeans
 import numpy as np
+import matplotlib.pyplot as plt
 
 from SlackAPIWrapper import getMessageData
 
@@ -11,6 +12,7 @@ def generateListOfMessages(data):
     listOfMessages = []
     for message in data:
         listOfMessages.append((message['ts'], 1))
+
     return listOfMessages
 
 def getClusters(listOfMessages):
@@ -29,12 +31,3 @@ def getClusters(listOfMessages):
         indicies = np.where(labels == label)
         res[label] = indicies[0].tolist()
     return res
-
-
-#
-# data = getMessageData()
-# listOfMessages = generateListOfMessages(data)
-# res = getClusters(listOfMessages)
-#
-#
-# print(res)

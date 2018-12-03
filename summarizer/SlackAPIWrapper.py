@@ -21,7 +21,6 @@ def getMessageData(channelId, token):
     message_list_per_channel_request = "https://slack.com/api/conversations.history?token=" + token + "&count=100"
     channelsJson = getRequestData(channel_list_request)
     jsonParser = json.loads(channelsJson)
-    channels = jsonParser["channels"]
 
 
 
@@ -51,35 +50,3 @@ def getMessagesFromIndicies(listOfMessages, indicies):
     nb = np.array(indicies)
     out = list(na[nb])
     return out
-
-
-def getUser(data, text):
-    maxRatio = 0
-    probablyUser = None
-    for message in data:
-
-        currentText = message['text']
-
-        ratio = SequenceMatcher(None, text, currentText).ratio()
-
-        if ratio > maxRatio:
-            probablyUser = message['user']
-            maxRatio = ratio
-
-
-    return getUsernameFromUserId(probablyUser)
-
-def getUsernameFromUserId(userId):
-    url = "https://slack.com/api/users.list?token=xoxp-487248075381-493930035239-494364886471-9b84b3bb946d4788f3d443c713f6c27a&pretty=1"
-
-    try:
-        data = requests.get(url).text
-    except requests.exceptions.RequestException as e:
-        return None
-
-    jsonParser = json.loads(data)
-    members = jsonParser["members"]
-
-    for member in members:
-        if member['id'] == userId:
-            return member
