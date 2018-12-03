@@ -6,7 +6,7 @@ import re
 import math
 import json
 
-def doMagic(userId, channelId, token):
+def doMagic(channelId, user, token):
     # Get all unseen messages
     data = getMessageData(channelId, token)
 

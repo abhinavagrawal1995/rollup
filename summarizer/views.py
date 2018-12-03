@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from summarizer.Summarize import doMagic
 import json
 import html
 
@@ -8,10 +9,10 @@ import html
 @csrf_exempt
 def challenge(request):
     if request.method == "POST":
-        channelName = request.POST.get('channelName')
+        channelId = request.POST.get('channelId')
         user = request.POST.get('user')
         token = request.POST.get('token')
-        summarized = magical.summarize(channelName, user, token)
+        summarized = doMagic(channelId, user, token)
         res = ""
         for cluster in summarized:
             for msgObj in cluster:
