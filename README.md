@@ -1,15 +1,8 @@
-# Getting started with Django on Google Cloud Platform on App Engine Standard
+# RollUp
 
-[![Open in Cloud Shell][shell_img]][shell_link]
+Clear communication in one of the most important aspects of any event. We receive a combination of emails, phone calls and IMs for every event we attend. Information keeps pouring into our minds from all over the place at the same time and it becomes difficult to be able to keep up with the flow.
 
-[shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
-[shell_link]: https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/GoogleCloudPlatform/python-docs-samples&page=editor&open_in_editor=appengine/standard_python37/django/README.md
+But imagine if you simply see a summary of what each communication is about, and then interact only with the ones that are relevant to you. That is exactly what we have achieved with RollUp. 
 
-This repository is an example of how to run a [Django](https://www.djangoproject.com/) 
-app on Google App Engine Standard Environment. It uses the 
-[Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) as the 
-example app to deploy.
-
-
-# Tutorial
-See our [Running Django in the App Engine Standard Environment](https://cloud.google.com/python/django/appengine) tutorial for instructions for setting up and deploying this sample application.
+This engine was presented as a SlackBot at YHacks '18.
+The text summarization engine behind the bot, however can be adapted to emails, transcribed meetings and several other modes of communication.
